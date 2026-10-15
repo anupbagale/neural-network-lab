@@ -59,11 +59,11 @@ class BAM:
             self.W += np.outer(a, b)
 
     def forward(self, a) -> np.ndarray:
-        """One pass A → B."""
+        """One pass from layer A to layer B."""
         return bipolar_threshold(np.asarray(a, dtype=float) @ self.W)
 
     def backward(self, b) -> np.ndarray:
-        """One pass B → A."""
+        """One pass from layer B to layer A."""
         return bipolar_threshold(np.asarray(b, dtype=float) @ self.W.T)
 
     def energy(self, a, b) -> float:
@@ -75,7 +75,7 @@ class BAM:
         return self.recall(self.backward(b), max_iter=max_iter)
 
     def recall(self, a, max_iter: int = 50) -> RecallTrace:
-        """Iterate A → B → A … until a stable pair (a fixed point) is reached."""
+        """Pass activity back and forth between the layers until the pair stops changing."""
         a = np.asarray(a, dtype=float)
         b = self.forward(a)
         energies = [self.energy(a, b)]

@@ -1,47 +1,46 @@
-# Contributing to Neural Network Lab
+# Contributing
 
-Thank you for helping to improve this lab! Contributions from students, instructors and
-self-learners are all welcome — from fixing a typo to adding a new lesson.
+Thanks for your interest in improving these notebooks. Fixes for typos and mistakes are just as
+welcome as new exercises or lessons.
 
-## 🆘 Getting help
+## Asking for help
 
-If something in a lesson is unclear, or a notebook does not run for you,
-[open an issue](https://github.com/anupbagale/Neural_Network_lab/issues/new/choose) and choose
-**Question / help**. Please say which lesson and cell you are on, and where you are running it
-(Colab, Jupyter, VS Code…).
+If something in a lesson is unclear or a notebook doesn't run, please
+[open an issue](https://github.com/anupbagale/Neural_Network_lab/issues/new/choose) and pick
+"Question". Say which lesson and cell you are on and where you are running it (Colab, Jupyter,
+VS Code and so on).
 
-## 🐞 Reporting a problem
+## Reporting a problem
 
-Use the **Bug report** template for code that crashes or gives wrong results, and
-**Lesson feedback** for mistakes or confusing passages in the teaching material. A good report
-includes:
+Use "Bug report" for code that crashes or gives a wrong result, and "Lesson feedback" for mistakes
+or confusing parts of the text. It helps a lot if you include:
 
-- the lesson (and cell) or the `nnlab` function involved;
-- what you expected and what happened instead;
-- your Python, NumPy and Matplotlib versions (`python -c "import numpy, matplotlib, sys; print(sys.version, numpy.__version__, matplotlib.__version__)"`).
+- the lesson and cell, or the `nnlab` function involved
+- what you expected and what happened instead
+- your Python, NumPy and Matplotlib versions, for example from
+  `python -c "import sys, numpy, matplotlib; print(sys.version, numpy.__version__, matplotlib.__version__)"`
 
-## 🛠️ Proposing a change
+## Making a change
 
-1. Fork the repository and create a branch: `git checkout -b my-change`.
-2. Install the development tools: `python -m pip install -e ".[dev]"`.
-3. Make your change. Please keep the existing style:
-   - `nnlab` code should be **readable first** — each line should map onto an equation in a lesson;
-   - lessons follow the *objectives → idea → by hand → code → see it → try it → check* structure;
-   - figures use `nnlab.style.apply_style()` and the `PALETTE` colours, in order.
-4. Run the checks:
+1. Fork the repository and create a branch.
+2. Install the package with the development tools: `pip install -e ".[dev]"`
+3. Make your change. A few things to keep in mind:
+   - Code in `nnlab` should stay easy to read. Each line should match an equation in a lesson.
+   - Lessons follow the same order: objectives, the idea, a worked example, code, plots,
+     exercises.
+   - Plots should call `nnlab.style.apply_style()` and use the colours in `PALETTE`, in order.
+4. Run the tests:
    ```bash
-   python -m pytest
-   python -m pytest --nbmake notebooks/
+   pytest
+   pytest --nbmake notebooks/
    ```
-5. If you changed a notebook, re-run it top to bottom so the saved outputs match the code.
-6. Open a pull request describing **what** you changed and **why**.
+5. If you edited a notebook, run it from top to bottom before committing so the saved output
+   matches the code.
+6. Open a pull request that explains what you changed and why.
 
-## 💡 Ideas for contributions
+Some things that would be useful: more exercises, translations, new lessons that fit the sequence
+(for example Hopfield networks or Kohonen maps), and notes on how you used the notebooks in a
+course.
 
-- Additional exercises, or translations of existing lessons.
-- New lessons that fit the sequence (e.g. Hopfield networks, Kohonen maps, radial basis functions).
-- Reports of how you used the lab in a course — these are very valuable to the project.
-
-By contributing you agree that code contributions are released under the [MIT License](LICENSE)
-and teaching content under [CC BY 4.0](LICENSE-CONTENT), and that you will follow the
-[Code of Conduct](CODE_OF_CONDUCT.md).
+Code contributions are released under the [MIT License](LICENSE) and text under
+[CC BY 4.0](LICENSE-CONTENT). Please follow the [code of conduct](CODE_OF_CONDUCT.md).

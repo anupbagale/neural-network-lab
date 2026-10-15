@@ -1,8 +1,7 @@
-"""nnlab — small, readable NumPy implementations of classic neural-network algorithms.
+"""Small NumPy implementations of classic neural network algorithms.
 
-The package backs the lesson notebooks in ``notebooks/``. Each module mirrors one
-lesson and favours clarity over speed, so the code can be read side by side with
-the equations.
+This package is used by the lesson notebooks in ``notebooks/``. Each module matches
+one lesson and is written to be read next to the equations, not to be fast.
 """
 
 from . import activations, backprop, bam, fuzzy, learning_rules, mcculloch_pitts, style

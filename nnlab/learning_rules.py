@@ -1,7 +1,7 @@
 """Single-neuron learning rules: Hebbian, perceptron and delta (Widrow–Hoff).
 
-All three rules share the same shape — present an input ``x``, compute
-``net = w · x`` and an output ``o = f(net)``, then nudge the weights:
+All three rules work the same way. Present an input ``x``, compute
+``net = w · x`` and an output ``o = f(net)``, then change the weights:
 
 =================  ===========================================  ==============
 Rule               Weight change ``Δw``                          Supervised?
@@ -69,7 +69,7 @@ class History:
         for s in self.steps:
             target = "" if s.target is None else f"  d = {s.target:+.0f}"
             print(
-                f"epoch {s.epoch} · x{s.sample + 1}:  net = {s.net:+.{precision}f}  "
+                f"epoch {s.epoch}, x{s.sample + 1}:  net = {s.net:+.{precision}f}  "
                 f"o = {s.output:+.{precision}f}{target}  ->  w = {fmt(s.weights)}"
             )
 

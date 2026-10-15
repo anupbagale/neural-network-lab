@@ -1,4 +1,4 @@
-"""One consistent, colour-blind-checked look for every figure in the lab."""
+"""Plot settings shared by all figures in the lab."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ GRID = "#e1e0d9"
 AXIS = "#c3c2b7"
 SURFACE = "#fcfcfb"
 
-#: Single-hue sequential ramp (light → dark blue) for magnitudes, e.g. λ sweeps.
+#: Single-hue sequential ramp (light to dark blue) for magnitudes, e.g. λ sweeps.
 SEQUENTIAL = LinearSegmentedColormap.from_list("nnlab_seq", ["#cde2fb", "#86b6ef", "#2a78d6", "#1c5cab", "#0d366b"])
 #: Diverging blue ↔ red with a neutral grey midpoint, e.g. signed weights.
 DIVERGING = LinearSegmentedColormap.from_list("nnlab_div", ["#2a78d6", "#f0efec", "#e34948"])

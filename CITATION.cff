@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this lab, please cite it as below."
-title: "Neural Network Lab: Hands-on Lessons Building Classic Neural Networks from Scratch"
+title: "Neural Network Lab: Jupyter lessons that implement classic neural network algorithms from scratch"
 type: software
 authors:
   - family-names: Bagale

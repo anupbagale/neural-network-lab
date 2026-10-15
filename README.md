@@ -1,168 +1,110 @@
-<div align="center">
-
-# 🧠 Neural Network Lab
-
-**Eight hands-on lessons that build classic neural networks from scratch — one equation, one line of NumPy at a time.**
+# Neural Network Lab
 
 [![Tests](https://github.com/anupbagale/Neural_Network_lab/actions/workflows/ci.yml/badge.svg)](https://github.com/anupbagale/Neural_Network_lab/actions/workflows/ci.yml)
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/01_mcculloch_pitts_logic_gates.ipynb)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-2a78d6.svg)](https://www.python.org/)
-[![Code: MIT](https://img.shields.io/badge/code-MIT-1baf7a.svg)](LICENSE)
-[![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-eb6834.svg)](LICENSE-CONTENT)
+[![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![License: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT)
 
-<img src="docs/images/overview.png" alt="Eight figures from the lessons: XOR built from threshold neurons, sigmoid steepness, Hebbian weight updates, a perceptron boundary moving each epoch, delta-rule learning curves, a backpropagation network solving XOR, BAM capacity, and fuzzy membership." width="100%">
+Jupyter notebooks that implement the classic neural network algorithms from scratch in NumPy,
+starting with a single McCulloch-Pitts neuron and ending with backpropagation, associative memory
+and fuzzy sets.
 
-</div>
+![Figures from the eight lessons](docs/images/overview.png)
 
----
+Each notebook covers one algorithm. It explains the idea and the math, works through a small
+example by hand, implements it in a few lines of NumPy and plots the result. The worked examples
+follow the notation of J. M. Zurada, *Introduction to Artificial Neural Systems* (1992), so the
+notebooks can be used next to that book or on their own.
 
-## Why this lab?
+## Lessons
 
-Modern deep-learning libraries hide the ideas that make neural networks work behind a single
-`model.fit()`. This lab goes the other way. Starting from the 1943 McCulloch–Pitts neuron, each
-lesson adds **one** new idea — a learning rule, an activation function, a hidden layer — derives it,
-asks you to compute it **by hand**, then runs it in a few lines of readable NumPy and **shows** what
-happened with a figure.
+| # | Notebook | Topics | Colab |
+|---|---|---|---|
+| 1 | [McCulloch-Pitts neurons and logic gates](notebooks/01_mcculloch_pitts_logic_gates.ipynb) | threshold neurons, AND/OR/NOT/NAND/NOR, why XOR needs two layers | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/01_mcculloch_pitts_logic_gates.ipynb) |
+| 2 | [Activation functions](notebooks/02_activation_functions.ipynb) | step, sigmoid, ReLU, the steepness parameter, derivatives | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/02_activation_functions.ipynb) |
+| 3 | [Hebbian learning](notebooks/03_hebbian_learning.ipynb) | unsupervised learning, discrete vs continuous neurons, weight growth | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/03_hebbian_learning.ipynb) |
+| 4 | [Perceptron learning rule](notebooks/04_perceptron_learning_rule.ipynb) | error correction, bias, decision boundaries, convergence | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/04_perceptron_learning_rule.ipynb) |
+| 5 | [Delta rule](notebooks/05_delta_rule.ipynb) | gradient descent, learning curves, learning rate | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/05_delta_rule.ipynb) |
+| 6 | [Backpropagation](notebooks/06_backpropagation_xor.ipynb) | a 2-2-1 network that learns XOR, gradient checking, hidden representations | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/06_backpropagation_xor.ipynb) |
+| 7 | [Bidirectional associative memory](notebooks/07_bidirectional_associative_memory.ipynb) | storing and recalling pattern pairs, energy, capacity | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/07_bidirectional_associative_memory.ipynb) |
+| 8 | [Fuzzy sets](notebooks/08_fuzzy_sets.ipynb) | membership, union, intersection, complement, which set laws still hold | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/08_fuzzy_sets.ipynb) |
 
-Every lesson follows the same rhythm:
+Lessons 1 to 6 are best done in order. Lesson 7 only needs lesson 3, and lesson 8 can be read
+any time after lesson 2. Each one takes 25 to 40 minutes and ends with a few exercises.
 
-> 🎯 **Objectives** → 💡 **Idea** → ✍️ **Work it by hand** → 🐍 **Code** → 📈 **See it** → 🧪 **Try it yourself** → ❓ **Check your understanding**
+## Running the notebooks
 
-It is designed for an undergraduate course on neural networks or soft computing, and for anyone
-learning on their own.
+The easiest way is Google Colab: open any notebook with the link in the table. The first cell
+installs everything it needs.
 
-## 📚 Lessons
-
-| | Lesson | You will learn to… | Time | |
-|:-:|---|---|:-:|:-:|
-| <img src="docs/images/lesson1.png" width="130"> | **1 · [McCulloch–Pitts Neurons & Logic Gates](notebooks/01_mcculloch_pitts_logic_gates.ipynb)** | build AND/OR/NOT/NAND/NOR by hand, see why XOR needs two layers | 25 min | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/01_mcculloch_pitts_logic_gates.ipynb) |
-| <img src="docs/images/lesson2.png" width="130"> | **2 · [Activation Functions](notebooks/02_activation_functions.ipynb)** | compare step, sigmoid and ReLU families; derive sigmoid derivatives; meet vanishing gradients | 25 min | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/02_activation_functions.ipynb) |
-| <img src="docs/images/lesson3.png" width="130"> | **3 · [Hebbian Learning](notebooks/03_hebbian_learning.ipynb)** | apply Δw = c·o·x; compare discrete and continuous neurons; watch weights explode | 25 min | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/03_hebbian_learning.ipynb) |
-| <img src="docs/images/lesson4.png" width="130"> | **4 · [The Perceptron Learning Rule](notebooks/04_perceptron_learning_rule.ipynb)** | learn from mistakes with Δw = c(d − o)x; watch a boundary move; see convergence fail on XOR | 30 min | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/04_perceptron_learning_rule.ipynb) |
-| <img src="docs/images/lesson5.png" width="130"> | **5 · [The Delta Rule & Gradient Descent](notebooks/05_delta_rule.ipynb)** | derive the delta rule from the chain rule; read learning curves; tune the learning rate | 30 min | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/05_delta_rule.ipynb) |
-| <img src="docs/images/lesson6.png" width="130"> | **6 · [Backpropagation: Solving XOR](notebooks/06_backpropagation_xor.ipynb)** | derive and gradient-check backprop; see the hidden layer make XOR separable | 40 min | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/06_backpropagation_xor.ipynb) |
-| <img src="docs/images/lesson7.png" width="130"> | **7 · [Bidirectional Associative Memory](notebooks/07_bidirectional_associative_memory.ipynb)** | store and recall pattern pairs; use the energy function; measure memory capacity | 35 min | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/07_bidirectional_associative_memory.ipynb) |
-| <img src="docs/images/lesson8.png" width="130"> | **8 · [Fuzzy Sets & Their Algebra](notebooks/08_fuzzy_sets.ipynb)** | compute fuzzy union, intersection and complement; find the two laws that break | 30 min | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/08_fuzzy_sets.ipynb) |
-
-### Learning path
-
-```mermaid
-flowchart LR
-    L1["1 · McCulloch–Pitts<br/>threshold logic"] --> L2["2 · Activation<br/>functions"]
-    L2 --> L3["3 · Hebbian<br/>learning"]
-    L3 --> L4["4 · Perceptron<br/>rule"]
-    L4 --> L5["5 · Delta rule"]
-    L5 --> L6["6 · Backpropagation"]
-    L3 --> L7["7 · Associative<br/>memory (BAM)"]
-    L2 -. graded truth .-> L8["8 · Fuzzy sets"]
-```
-
-Lessons 1 → 6 form the core path from a single neuron to a trained multi-layer network.
-Lesson 7 builds on Hebbian learning, and Lesson 8 can be taken any time after Lesson 2.
-
-## 🚀 Getting started
-
-### Option 1 — in the browser (no installation)
-
-Click any **Open in Colab** badge above. The first cell of each notebook installs the small `nnlab`
-helper package automatically.
-
-### Option 2 — on your own computer
+To run them locally you need Python 3.9 or newer:
 
 ```bash
 git clone https://github.com/anupbagale/Neural_Network_lab.git
 cd Neural_Network_lab
-python -m pip install -e ".[dev]"     # installs nnlab, Jupyter and the test tools
+pip install -e ".[dev]"
 jupyter lab notebooks/
 ```
 
-The only runtime dependencies are **NumPy** and **Matplotlib** (see [`requirements.txt`](requirements.txt)).
+## The nnlab package
 
-## 🧩 The `nnlab` package
-
-All algorithms live in a tiny package, [`nnlab/`](nnlab), written to be **read alongside the
-equations** rather than for speed. You can also use it on its own:
+The notebooks import their algorithms from `nnlab`, a small package in this repository. The code
+is written to be easy to follow next to the equations rather than to be fast, and it can be used
+outside the notebooks too:
 
 ```python
 from nnlab.learning_rules import perceptron
 from nnlab.backprop import TwoLayerNet
 
-# Perceptron rule on the worked example from Lesson 4
+# perceptron rule on the example from lesson 4
 hist = perceptron(w0=[1, -1, 0, 0.5],
                   X=[[1, -2, 0, -1], [0, 1.5, -0.5, -1], [-1, 1, 0.5, -1]],
                   d=[-1, -1, 1], c=0.1, epochs=100)
-hist.print_steps()            # textbook-style table of every update
+hist.print_steps()
 
-# A 2-2-1 network learns XOR with backpropagation
+# a 2-2-1 network trained on XOR
 net = TwoLayerNet(V=[[1, -1, -1], [1, -2, 1]], W=[1, 1, -1], lr=0.05)
-result = net.fit([[0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 1]], [0, 1, 1, 0])
-print(result.epochs, net.predict([[1, 0, 1]]))
+net.fit([[0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 1]], [0, 1, 1, 0])
 ```
 
-| Module | Contents |
+| Module | What it contains |
 |---|---|
-| `nnlab.mcculloch_pitts` | `MPNeuron`, ready-made `GATES`, a two-layer `xor_network`, `truth_table` |
-| `nnlab.activations` | step, sigmoid (with steepness λ), linear, ReLU and Leaky ReLU, plus derivatives |
-| `nnlab.learning_rules` | `hebbian`, `perceptron`, `delta_rule` — each returns a full update `History` |
-| `nnlab.backprop` | `TwoLayerNet` with explicit forward pass, backward pass and online training |
-| `nnlab.bam` | `BAM` with outer-product storage, bidirectional recall and energy |
-| `nnlab.fuzzy` | `FuzzySet` with `~`, `\|`, `&`, `-` operators and `check_properties` |
-| `nnlab.style` | the colour-blind-checked palette and plot style used in every figure |
+| `mcculloch_pitts` | threshold neuron, logic gates, two-layer XOR network |
+| `activations` | step, sigmoid, linear, ReLU, leaky ReLU and sigmoid derivatives |
+| `learning_rules` | Hebbian, perceptron and delta rule training with a record of every update |
+| `backprop` | network with one hidden layer trained by backpropagation |
+| `bam` | bidirectional associative memory |
+| `fuzzy` | fuzzy sets and their operations |
+| `style` | plot settings shared by all figures |
 
-## 👩‍🏫 For instructors
-
-- **Self-contained lessons.** Each notebook states its objectives, prerequisites and expected time,
-  and ends with a summary and references, so lessons can be assigned individually.
-- **By-hand first.** Every algorithm starts with a small worked example that students compute on
-  paper before running code; the code then prints the same step-by-step table to check against.
-- **Built-in formative assessment.** “Try it yourself” exercises and collapsible
-  “Check your understanding” answers support both lab sessions and self-study.
-- **Suggested use.** One or two lessons per lab session cover the whole lab in four to six
-  sessions. Lessons 1–6 alone make a compact unit on single-neuron learning and backpropagation.
-- **Verified content.** An automated test suite checks every algorithm against the hand-worked
-  results, including a numerical gradient check of backpropagation, and CI re-runs every notebook
-  on each change.
-
-## 🗂️ Repository layout
-
-```
-Neural_Network_lab/
-├── notebooks/          ← the eight lessons (start here)
-├── nnlab/              ← readable implementations used by the lessons
-├── tests/              ← pytest suite (algorithms reproduce the hand-worked results)
-├── paper/              ← JOSE paper (paper.md, paper.bib)
-├── docs/images/        ← README figures (regenerate with scripts/make_figures.py)
-├── scripts/
-└── .github/            ← CI workflows and issue templates
-```
-
-## ✅ Running the tests
+## Tests
 
 ```bash
-python -m pytest                        # unit and regression tests
-python -m pytest --nbmake notebooks/    # execute every lesson notebook
+pytest                       # checks the algorithms against the hand-worked results
+pytest --nbmake notebooks/   # runs every notebook from top to bottom
 ```
 
-## 🤝 Contributing and support
+Both run automatically on GitHub for every push.
 
-Found a mistake, have an idea for an exercise, or used the lab in your class? Please
-[open an issue](https://github.com/anupbagale/Neural_Network_lab/issues) — see
-[CONTRIBUTING.md](CONTRIBUTING.md) for how to report problems, ask for help and propose changes.
-Everyone taking part is expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+## Using this in a course
 
-## 📖 Citing
+The notebooks were written to fit the classical part of a neural networks or soft computing
+course, roughly one or two notebooks per lab session. Every notebook lists its objectives and
+prerequisites at the top, so they can also be assigned individually. The exercises at the end have
+hidden answers that can be expanded.
 
-If you use this lab in teaching or research, please cite it using the metadata in
-[`CITATION.cff`](CITATION.cff) (GitHub's **“Cite this repository”** button generates APA and
-BibTeX for you).
+## Contributing
 
-## 📄 License
+Corrections, new exercises and reports of how you used the notebooks are welcome. Please open an
+[issue](https://github.com/anupbagale/Neural_Network_lab/issues) or read
+[CONTRIBUTING.md](CONTRIBUTING.md). This project follows a [code of conduct](CODE_OF_CONDUCT.md).
 
-- **Code** (`nnlab/`, `tests/`, `scripts/` and the code cells of the notebooks) is released under the [MIT License](LICENSE).
-- **Educational content** (lesson text, figures and the paper) is released under
-  [Creative Commons Attribution 4.0 International](LICENSE-CONTENT).
+## Citation
 
-## 🙏 Acknowledgements
+If you use this material, please cite it using [CITATION.cff](CITATION.cff), or the
+"Cite this repository" button on GitHub.
 
-The worked examples in Lessons 3–5 follow the classic examples in J. M. Zurada,
-*Introduction to Artificial Neural Systems* (1992), whose notation the lab adopts throughout.
+## License
+
+The code is released under the [MIT License](LICENSE). The text and figures in the notebooks are
+released under [CC BY 4.0](LICENSE-CONTENT).

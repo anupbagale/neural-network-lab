@@ -1,13 +1,13 @@
 """A two-layer (one hidden layer) network trained with error backpropagation.
 
-The implementation is deliberately explicit — every line maps onto one
-equation in Lesson 6 — rather than vectorised for speed.
+The code is written out step by step so that each line matches an equation in
+lesson 6. It is not vectorised for speed.
 
 Notation (Zurada 1992):
 
-* ``V`` — input→hidden weights, shape ``(J, I)`` (the last input is a constant bias of 1)
-* ``W`` — hidden→output weights, shape ``(J + 1,)`` (the hidden layer also gets a bias unit)
-* ``y`` — hidden-layer outputs, ``o`` — network output
+* ``V``: input-to-hidden weights, shape ``(J, I)`` (the last input is a constant bias of 1)
+* ``W``: hidden-to-output weights, shape ``(J + 1,)`` (the hidden layer also gets a bias unit)
+* ``y``: hidden layer outputs, ``o``: network output
 * ``δ_o = (d − o) f'(net_o)`` and ``δ_y = f'(net_y) · W δ_o``
 """
 
@@ -36,10 +36,10 @@ class TwoLayerNet:
     Parameters
     ----------
     V : array, shape (J, I)
-        Initial input→hidden weights. Inputs are expected to already contain
+        Initial input-to-hidden weights. Inputs are expected to already contain
         the bias component (e.g. ``[x1, x2, 1]``).
     W : array, shape (J + 1,)
-        Initial hidden→output weights; the last entry is the hidden bias weight.
+        Initial hidden-to-output weights; the last entry is the hidden bias weight.
     lr : float
         Learning constant ``η``.
     lam : float
