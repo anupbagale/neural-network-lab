@@ -93,11 +93,9 @@ course, roughly one or two notebooks per lab session. Every notebook lists its o
 prerequisites at the top, so they can also be assigned individually. The exercises at the end have
 hidden answers that can be expanded.
 
-## Contributing
+## Feedback
 
-Corrections, new exercises and reports of how you used the notebooks are welcome. Please open an
-[issue](https://github.com/anupbagale/Neural_Network_lab/issues) or read
-[CONTRIBUTING.md](CONTRIBUTING.md). This project follows a [code of conduct](CODE_OF_CONDUCT.md).
+Found a mistake or something unclear? Please [open an issue](https://github.com/anupbagale/Neural_Network_lab/issues).
 
 ## Citation
 
