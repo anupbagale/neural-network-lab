@@ -32,12 +32,10 @@ def points(ax, outputs):
                    color=PALETTE[0] if out else PALETTE[1], edgecolor="white", linewidth=1.2)
 
 
-def finish(ax, title):
+def finish(ax, title, xlabel="", ylabel=""):
     ax.set_title(title)
-    ax.set_xticks([])
-    ax.set_yticks([])
-    ax.tick_params(which="both", length=0)
-    ax.yaxis.set_minor_formatter(plt.NullFormatter())
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
 
 
 # --------------------------------------------------------------- panels
@@ -48,17 +46,18 @@ def panel_gates(ax):
         ax.contour(G1, G2, w[0] * G1 + w[1] * G2, levels=[1], colors=[PALETTE[2]], linewidths=2, linestyles=ls)
     ax.contourf(G1, G2, (G1 - G2 >= 1) | (G2 - G1 >= 1), levels=[0.5, 1.5], colors=[PALETTE[2]], alpha=0.15)
     points(ax, [o for _, o in truth_table(xor_network)])
-    ax.set(xlim=(-0.5, 1.5), ylim=(-0.5, 1.5), aspect="equal")
-    finish(ax, "XOR from threshold neurons")
+    ax.set(xlim=(-0.5, 1.5), ylim=(-0.5, 1.5), xticks=[0, 1], yticks=[0, 1], aspect="equal")
+    finish(ax, "XOR with two threshold neurons", "$x_1$", "$x_2$")
 
 
 def panel_activations(ax):
     net = np.linspace(-6, 6, 400)
     cols = colormaps["nnlab_seq"](np.linspace(0.3, 1, 4))
     for lam, c in zip([0.5, 1, 2, 6], cols):
-        ax.plot(net, act.bipolar_sigmoid(net, lam), color=c)
-    ax.plot(net, act.bipolar_step(net), color=PALETTE[1], ls="--", lw=1.5)
-    finish(ax, "Sigmoid steepness λ")
+        ax.plot(net, act.bipolar_sigmoid(net, lam), color=c, label=f"λ={lam}")
+    ax.plot(net, act.bipolar_step(net), color=PALETTE[1], ls="--", lw=1.5, label="sgn")
+    ax.legend(fontsize=8, loc="upper left")
+    finish(ax, "Bipolar sigmoid", "net", "f(net)")
 
 
 def panel_hebbian(ax):
@@ -66,8 +65,10 @@ def panel_hebbian(ax):
     X = [[1, -2, 1.5, 0], [1, -0.5, -2, -1.5], [0, 1, -1, 1.5]]
     traj = hebbian(w0, X, c=1).weight_trajectory()
     for i in range(traj.shape[1]):
-        ax.plot(traj[:, i], marker="o")
-    finish(ax, "Hebbian weight updates")
+        ax.plot(traj[:, i], marker="o", label=f"$w_{i + 1}$")
+    ax.set_xticks(range(len(traj)))
+    ax.legend(fontsize=8, ncol=2)
+    finish(ax, "Hebbian learning", "update step", "weight")
 
 
 def panel_perceptron(ax):
@@ -87,7 +88,7 @@ def panel_perceptron(ax):
     ax.scatter(*pos.T, s=22, color=PALETTE[0], edgecolor="white", linewidth=0.5, zorder=3)
     ax.scatter(*neg.T, s=26, marker="X", color=PALETTE[1], edgecolor="white", linewidth=0.5, zorder=3)
     ax.set(xlim=(-3.5, 4), ylim=(-3, 4))
-    finish(ax, "Perceptron boundary by epoch")
+    finish(ax, "Perceptron, boundary per epoch", "$x_1$", "$x_2$")
 
 
 def panel_delta(ax):
@@ -95,9 +96,10 @@ def panel_delta(ax):
     X = [[1, -2, 0, -1], [0, 1.5, -0.5, -1], [-1, 1, 0.5, -1]]
     d = [-1, -1, 1]
     for c in [0.05, 0.1, 0.5, 2.0]:
-        ax.plot(delta_rule(w0, X, d, c=c, epochs=300).epoch_errors)
+        ax.plot(delta_rule(w0, X, d, c=c, epochs=300).epoch_errors, label=f"c={c}")
     ax.set_yscale("log")
-    finish(ax, "Delta-rule learning curves")
+    ax.legend(fontsize=8)
+    finish(ax, "Delta rule", "epoch", "error")
 
 
 def xor_net():
@@ -115,9 +117,9 @@ def panel_backprop(ax, net):
     for (x1, x2), t in zip(CORNERS, [0, 1, 1, 0]):
         ax.scatter(x1, x2, s=120, marker="o" if t else "X", color="white" if t else PALETTE[1],
                    edgecolor=PALETTE[1], linewidth=1.8, zorder=3)
-    ax.set(xlim=(-0.5, 1.5), ylim=(-0.5, 1.5), aspect="equal")
+    ax.set(xlim=(-0.5, 1.5), ylim=(-0.5, 1.5), xticks=[0, 1], yticks=[0, 1], aspect="equal")
     ax.grid(False)
-    finish(ax, "Backprop solves XOR")
+    finish(ax, "Backpropagation on XOR", "$x_1$", "$x_2$")
 
 
 def panel_bam(ax):
@@ -133,16 +135,17 @@ def panel_bam(ax):
         frac.append(ok / 20)
     ax.plot(list(ks), frac, marker="o", markersize=4, color=PALETTE[0])
     ax.set_ylim(-0.03, 1.03)
-    finish(ax, "BAM capacity")
+    finish(ax, "BAM capacity (40 neurons)", "stored pairs", "recalled correctly")
 
 
 def panel_fuzzy(ax):
     t = np.linspace(0, 40, 400)
     warm = np.clip(np.minimum((t - 15) / 7, (35 - t) / 7), 0, 1)
-    ax.plot(t, warm, color=PALETTE[0])
-    ax.plot(t, 1 - warm, color=PALETTE[1], ls="--")
+    ax.plot(t, warm, color=PALETTE[0], label="warm")
+    ax.plot(t, 1 - warm, color=PALETTE[1], ls="--", label="not warm")
     ax.fill_between(t, np.minimum(warm, 1 - warm), color=PALETTE[2], alpha=0.35)
-    finish(ax, "Fuzzy: warm ∧ not warm ≠ ∅")
+    ax.legend(fontsize=8, loc="center left")
+    finish(ax, "Fuzzy sets", "temperature (°C)", "membership")
 
 
 # --------------------------------------------------------------- output
@@ -157,7 +160,7 @@ if __name__ == "__main__":
     panels = [panel_gates, panel_activations, panel_hebbian, panel_perceptron,
               panel_delta, lambda ax: panel_backprop(ax, net), panel_bam, panel_fuzzy]
 
-    fig, axes = plt.subplots(2, 4, figsize=(16, 7.6))
+    fig, axes = plt.subplots(2, 4, figsize=(16, 8))
     for ax, panel in zip(axes.flat, panels):
         panel(ax)
     fig.tight_layout(h_pad=2.0, w_pad=1.5)
