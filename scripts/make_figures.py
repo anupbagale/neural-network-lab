@@ -1,4 +1,4 @@
-"""Regenerate the README figures in docs/images/.
+"""Regenerate the README figure, docs/images/overview.png.
 
 Usage:  python scripts/make_figures.py
 """
@@ -163,8 +163,3 @@ if __name__ == "__main__":
     fig.tight_layout(h_pad=2.0, w_pad=1.5)
     save(fig, "overview.png")
 
-    for i, panel in enumerate(panels, 1):
-        fig, ax = plt.subplots(figsize=(3.6, 2.9))
-        panel(ax)
-        ax.set_title("")
-        save(fig, f"lesson{i}.png")

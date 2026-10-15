@@ -6,14 +6,13 @@ welcome as new exercises or lessons.
 ## Asking for help
 
 If something in a lesson is unclear or a notebook doesn't run, please
-[open an issue](https://github.com/anupbagale/Neural_Network_lab/issues/new/choose) and pick
-"Question". Say which lesson and cell you are on and where you are running it (Colab, Jupyter,
-VS Code and so on).
+[open an issue](https://github.com/anupbagale/Neural_Network_lab/issues/new). Say which lesson and
+cell you are on and where you are running it (Colab, Jupyter, VS Code and so on).
 
 ## Reporting a problem
 
-Use "Bug report" for code that crashes or gives a wrong result, and "Lesson feedback" for mistakes
-or confusing parts of the text. It helps a lot if you include:
+Open an issue for code that crashes or gives a wrong result, or for mistakes and confusing parts
+of the text. It helps a lot if you include:
 
 - the lesson and cell, or the `nnlab` function involved
 - what you expected and what happened instead
