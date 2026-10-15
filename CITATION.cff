@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this lab, please cite it as below."
+title: "Neural Network Lab: Hands-on Lessons Building Classic Neural Networks from Scratch"
+type: software
+authors:
+  - family-names: Bagale
+    given-names: Anup
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO: add your ORCID
+version: 1.0.0
+date-released: 2026-10-15
+license:
+  - MIT
+  - CC-BY-4.0
+repository-code: "https://github.com/anupbagale/Neural_Network_lab"
+keywords:
+  - neural networks
+  - perceptron
+  - backpropagation
+  - hebbian learning
+  - associative memory
+  - fuzzy sets
+  - education
+  - jupyter
