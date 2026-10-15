@@ -8,5 +8,4 @@ dist/
 .venv/
 venv/
 .DS_Store
-paper/paper.pdf
-paper/jats/
+
