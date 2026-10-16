@@ -1,7 +1,7 @@
-# Neural Network Lab
+# Neural networks from scratch
 
-[![Tests](https://github.com/anupbagale/Neural_Network_lab/actions/workflows/ci.yml/badge.svg)](https://github.com/anupbagale/Neural_Network_lab/actions/workflows/ci.yml)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/01_mcculloch_pitts_logic_gates.ipynb)
+[![Tests](https://github.com/anupbagale/neural-networks-from-scratch/actions/workflows/ci.yml/badge.svg)](https://github.com/anupbagale/neural-networks-from-scratch/actions/workflows/ci.yml)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/anupbagale/neural-networks-from-scratch/blob/main/notebooks/01_mcculloch_pitts_logic_gates.ipynb)
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![License: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT)
 
@@ -20,14 +20,14 @@ notebooks can be used next to that book or on their own.
 
 | # | Notebook | Topics | Colab |
 |---|---|---|---|
-| 1 | [McCulloch-Pitts neurons and logic gates](notebooks/01_mcculloch_pitts_logic_gates.ipynb) | threshold neurons, AND/OR/NOT/NAND/NOR, why XOR needs two layers | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/01_mcculloch_pitts_logic_gates.ipynb) |
-| 2 | [Activation functions](notebooks/02_activation_functions.ipynb) | step, sigmoid, ReLU, the steepness parameter, derivatives | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/02_activation_functions.ipynb) |
-| 3 | [Hebbian learning](notebooks/03_hebbian_learning.ipynb) | unsupervised learning, discrete vs continuous neurons, weight growth | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/03_hebbian_learning.ipynb) |
-| 4 | [Perceptron learning rule](notebooks/04_perceptron_learning_rule.ipynb) | error correction, bias, decision boundaries, convergence | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/04_perceptron_learning_rule.ipynb) |
-| 5 | [Delta rule](notebooks/05_delta_rule.ipynb) | gradient descent, learning curves, learning rate | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/05_delta_rule.ipynb) |
-| 6 | [Backpropagation](notebooks/06_backpropagation_xor.ipynb) | a 2-2-1 network that learns XOR, gradient checking, hidden representations | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/06_backpropagation_xor.ipynb) |
-| 7 | [Bidirectional associative memory](notebooks/07_bidirectional_associative_memory.ipynb) | storing and recalling pattern pairs, energy, capacity | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/07_bidirectional_associative_memory.ipynb) |
-| 8 | [Fuzzy sets](notebooks/08_fuzzy_sets.ipynb) | membership, union, intersection, complement, which set laws still hold | [open](https://colab.research.google.com/github/anupbagale/Neural_Network_lab/blob/main/notebooks/08_fuzzy_sets.ipynb) |
+| 1 | [McCulloch-Pitts neurons and logic gates](notebooks/01_mcculloch_pitts_logic_gates.ipynb) | threshold neurons, AND/OR/NOT/NAND/NOR, why XOR needs two layers | [open](https://colab.research.google.com/github/anupbagale/neural-networks-from-scratch/blob/main/notebooks/01_mcculloch_pitts_logic_gates.ipynb) |
+| 2 | [Activation functions](notebooks/02_activation_functions.ipynb) | step, sigmoid, ReLU, the steepness parameter, derivatives | [open](https://colab.research.google.com/github/anupbagale/neural-networks-from-scratch/blob/main/notebooks/02_activation_functions.ipynb) |
+| 3 | [Hebbian learning](notebooks/03_hebbian_learning.ipynb) | unsupervised learning, discrete vs continuous neurons, weight growth | [open](https://colab.research.google.com/github/anupbagale/neural-networks-from-scratch/blob/main/notebooks/03_hebbian_learning.ipynb) |
+| 4 | [Perceptron learning rule](notebooks/04_perceptron_learning_rule.ipynb) | error correction, bias, decision boundaries, convergence | [open](https://colab.research.google.com/github/anupbagale/neural-networks-from-scratch/blob/main/notebooks/04_perceptron_learning_rule.ipynb) |
+| 5 | [Delta rule](notebooks/05_delta_rule.ipynb) | gradient descent, learning curves, learning rate | [open](https://colab.research.google.com/github/anupbagale/neural-networks-from-scratch/blob/main/notebooks/05_delta_rule.ipynb) |
+| 6 | [Backpropagation](notebooks/06_backpropagation_xor.ipynb) | a 2-2-1 network that learns XOR, gradient checking, hidden representations | [open](https://colab.research.google.com/github/anupbagale/neural-networks-from-scratch/blob/main/notebooks/06_backpropagation_xor.ipynb) |
+| 7 | [Bidirectional associative memory](notebooks/07_bidirectional_associative_memory.ipynb) | storing and recalling pattern pairs, energy, capacity | [open](https://colab.research.google.com/github/anupbagale/neural-networks-from-scratch/blob/main/notebooks/07_bidirectional_associative_memory.ipynb) |
+| 8 | [Fuzzy sets](notebooks/08_fuzzy_sets.ipynb) | membership, union, intersection, complement, which set laws still hold | [open](https://colab.research.google.com/github/anupbagale/neural-networks-from-scratch/blob/main/notebooks/08_fuzzy_sets.ipynb) |
 
 Lessons 1 to 6 are best done in order. Lesson 7 only needs lesson 3, and lesson 8 can be read
 any time after lesson 2. Each one takes 25 to 40 minutes and ends with a few exercises.
@@ -40,8 +40,8 @@ installs everything it needs.
 To run them locally you need Python 3.9 or newer:
 
 ```bash
-git clone https://github.com/anupbagale/Neural_Network_lab.git
-cd Neural_Network_lab
+git clone https://github.com/anupbagale/neural-networks-from-scratch.git
+cd neural-networks-from-scratch
 pip install -e ".[dev]"
 jupyter lab notebooks/
 ```
@@ -95,7 +95,7 @@ hidden answers that can be expanded.
 
 ## Feedback
 
-Found a mistake or something unclear? Please [open an issue](https://github.com/anupbagale/Neural_Network_lab/issues).
+Found a mistake or something unclear? Please [open an issue](https://github.com/anupbagale/neural-networks-from-scratch/issues).
 
 ## Citation
 

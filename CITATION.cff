@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this lab, please cite it as below."
-title: "Neural Network Lab: Jupyter lessons that implement classic neural network algorithms from scratch"
+title: "Neural networks from scratch: Jupyter lessons on classic neural network algorithms"
 type: software
 authors:
   - family-names: Bagale
@@ -10,7 +10,7 @@ date-released: 2026-10-15
 license:
   - MIT
   - CC-BY-4.0
-repository-code: "https://github.com/anupbagale/Neural_Network_lab"
+repository-code: "https://github.com/anupbagale/neural-networks-from-scratch"
 keywords:
   - neural networks
   - perceptron

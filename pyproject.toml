@@ -23,8 +23,8 @@ classifiers = [
 dev = ["pytest>=7", "nbmake>=1.4", "jupyter"]
 
 [project.urls]
-Homepage = "https://github.com/anupbagale/Neural_Network_lab"
-Issues = "https://github.com/anupbagale/Neural_Network_lab/issues"
+Homepage = "https://github.com/anupbagale/neural-networks-from-scratch"
+Issues = "https://github.com/anupbagale/neural-networks-from-scratch/issues"
 
 [tool.setuptools]
 packages = ["nnlab"]
